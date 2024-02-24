@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+    <style>
+        /* .fa-duotone.fa-mug-hot {
+      color: red; Example color
+      font-size: 24px; Example font size
+      Add any other styles you want
+     */
+
+        body {
+            background-color: blueviolet;
+            place-items: center;
+            display: grid;
+        }
+
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            /* padding: 34px; */
+            width: 100%;
+        }
+
+        .div1 {
+
+            padding: 84px;
+            padding-top: 24px;
+        }
+
+        .counter {
+
+            /* font-size: 105px;
+            font-weight: bolder;
+            color: rgb(255, 217, 0); */
+            font-size: 100px;
+            background: linear-gradient(30deg, #ffd700 100%, #ffd700 100%);
+            -webkit-background-clip: text;
+            /* For Safari/Chrome */
+            -webkit-text-fill-color: transparent;
+            /* For Safari/Chrome */
+            background-clip: text;
+            color: transparent;
+            /* Fallback color */
+        }
+
+        span {
+            color: black;
+            font-size: 20px;
+            font-weight: bolder;
+            /* font-family: Arial, Helvetica, sans-serif; */
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        #div3 {
+            width: 190px;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <div class="container">
+            <div class="div1">
+                <img src="92135.png">
+                <div class="counter" data-target="4000">0</div>
+                <span>
+                    Projects Completed
+                </span>
+            </div>
+            <div class="div1">
+                <img src="33308.png">
+                <div class="counter" data-target="15000">0</div>
+                <span>
+                    Happy Clients
+                </span>
+            </div>
+            <div class="div1">
+                <img src="2099192.png">
+                <div class="counter" id="div3" data-target="500">0</div>
+                <span>
+                    OnGoing Projects
+                </span>
+            </div>
+        </div>
+    </center>
+
+    <script>
+        const counters = document.querySelectorAll(".counter");
+
+        counters.forEach((counter) => {
+            counter.innerHTML = 0;
+            console.log(counter);
+
+            const updateCounter = () => {
+                const targetCount = +counter.getAttribute("data-target");
+                console.log(targetCount);
+                const startingCount = Number(counter.innerHTML);
+                const incre = targetCount / 100;
+                if (startingCount < targetCount) {
+                    counter.innerHTML = `${Math.round(startingCount + incre)}`;
+                    setTimeout(updateCounter, 10);
+                }
+                else {
+                    counter.innerHTML = targetCount;
+                }
+            }
+            updateCounter();
+
+
+        })
+    </script>
+</body>
+
+</html>
